@@ -1,36 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 19:59:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/05 14:12:29 by mbozan           ###   ########.fr       */
+/*   Created: 2024/04/05 14:19:48 by mbozan            #+#    #+#             */
+/*   Updated: 2024/04/05 14:49:10 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char *str)
+char	ft_toupper(char *str)
 {
-	while (*str != '\0')
+	int	i;
+	int	c;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (!(*str >= 32 && *str <= 126))
-		{
-			return (0);
-		}
-		str++;
+		c = str[i];
+		if (c >= 'a' && c <= 'z')
+			str[i] = str[i] - 32;
+		i++;
 	}
-	return (1);
+	return (*str);
 }
 
 /*
 #include <stdio.h>
-
-int	main(void)
+int	main(int ac, char **av)
 {
-	char	str[] = "abcd";
+	int	n;
 
-	printf("%s", ft_str_is_printable(str) ? "yes" : "nope");
+	n = 1;
+
+	while (ac >= 2)
+	{
+		ft_toupper(av[n]);
+		printf("%s", av[n]);
+		n++;
+		ac--;
+	}
 	return (0);
 }
 */

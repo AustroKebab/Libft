@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 19:59:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/05 14:12:29 by mbozan           ###   ########.fr       */
+/*   Created: 2024/04/05 15:56:35 by mbozan            #+#    #+#             */
+/*   Updated: 2024/04/05 16:57:59 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char *str)
+char	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	while (*str != '\0')
+	int	i;
+
+	i = 0;
+	while (src[i] != '\0')
 	{
-		if (!(*str >= 32 && *str <= 126))
-		{
-			return (0);
-		}
-		str++;
+		dest[i] = src[i];
+		i++;
 	}
-	return (1);
+	dest[i] = '\0';
+	return (dest);
 }
 
 /*
@@ -28,9 +29,12 @@ int	ft_isprint(char *str)
 
 int	main(void)
 {
-	char	str[] = "abcd";
+	char str[] = "Love, baby";
+	char d[69];
 
-	printf("%s", ft_str_is_printable(str) ? "yes" : "nope");
+	ft_strcpy(d, str);
+	printf("%s", d);
+
 	return (0);
 }
 */

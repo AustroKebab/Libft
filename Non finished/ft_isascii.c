@@ -1,36 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 19:59:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/05 14:12:29 by mbozan           ###   ########.fr       */
+/*   Created: 2024/04/05 13:10:05 by mbozan            #+#    #+#             */
+/*   Updated: 2024/04/05 14:08:54 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char *str)
+int	ft_isascii(int c)
 {
-	while (*str != '\0')
-	{
-		if (!(*str >= 32 && *str <= 126))
-		{
-			return (0);
-		}
-		str++;
-	}
-	return (1);
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }
 
 /*
 #include <stdio.h>
+#include <stdlib.h>
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	char	str[] = "abcd";
+	int	nb;
+	int	n;
 
-	printf("%s", ft_str_is_printable(str) ? "yes" : "nope");
+	n = 1;
+
+	while (ac >= 2)
+	{
+		nb = atoi(av[n]);
+		if (ft_isascii (nb))
+		{
+			printf("%s is ASCII.\n", av[n]);
+			n++;
+			ac--;
+		}
+		else
+		{
+			printf("%s is not ASCII.\n", av[n]);
+			n++;
+			ac--;
+		}
+	}
 	return (0);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:11:44 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/04 17:57:39 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/05 13:09:06 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_isalnum(int c)
 		return (0);
 }
 
-
+/*
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -41,3 +41,4 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
+*/
