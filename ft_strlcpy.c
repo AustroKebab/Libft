@@ -6,7 +6,7 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:56:35 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/08 19:24:52 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/09 18:04:38 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -14,19 +14,35 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	sl;
 
 	i = 0;
-	sl = 0;
-	while (src[sl] != '\0' && size > 0)
-		sl++;
-	while (*src != '\0' && size > 1)
+	while (src[i] != '\0' && i < size -1)
 	{
-		*dst++ = *src++;
-		size--;
-		i++;
+		dst[i] = src[i];
+		++i;
 	}
 	if (size > 0)
-		*dst = 0;
-	return (sl);
+		dst[i] = 0;
+	while (src[i] != '\0')
+		++i;
+	return (i);
 }
+
+/*
+#include <stdio.h>
+#include <stddef.h>
+
+size_t ft_strlcpy(char *dst, const char *src, size_t size);
+
+int	main(void) 
+{
+	char src[] = "Hello, world!";
+	char dest[20]; // Destination buffer
+	size_t length;
+
+	length = ft_strlcpy(dest, src, sizeof(dest));
+	printf("Copied string: %s\n", dest);
+	printf("Length: %zu\n", length);
+	return 0;
+}
+*/

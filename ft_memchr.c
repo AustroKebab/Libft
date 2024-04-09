@@ -1,40 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 11:36:06 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/09 17:57:10 by mbozan           ###   ########.fr       */
+/*   Created: 2024/04/09 14:20:47 by mbozan            #+#    #+#             */
+/*   Updated: 2024/04/09 16:22:03 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
 
-void	bzero(void *s, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*sp;
-	size_t			nn;
+	size_t				nn;
+	const unsigned char	*sp;
 
-	sp = ((unsigned char *)s);
 	nn = 0;
+	sp = s;
 	while (nn < n)
 	{
-		*sp++ = 0;
-		++nn;
+		if (*sp == c)
+			return ((void *)sp);
+		sp++;
+		n++;
 	}
+	return (0);
 }
 
 /*
 #include <stdio.h>
-
-int	main(void)
+#include <stdlib.h>
+int	main(int ac, char **av)
 {
-	char	test_string[13];
-	strcpy(test_string, "Herst Hawara");
-	printf("Before bzero: %s\n", test_string);
-	bzero(test_string, sizeof(test_string));
-	printf("After bzero: %s\n", test_string);
-	return (0);
+	int			c;
+	size_t		len;
+	void		*ptr;
+
+	const char	*str = av[1];
+	c = av[2][0];
+	len = strlen(str);
+	if (ac == 3)
+	{
+		ptr = ft_memchr(str, c, len);
+		if (ptr != NULL)
+			printf("FOUND AT: %ld\n", ((char *)ptr) - str);
+		else
+			printf("ERROR\n");
+	}
+	return 0;
 }
 */
