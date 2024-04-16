@@ -6,27 +6,28 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 14:55:49 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/08 16:29:01 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/15 13:48:18 by austrokebab      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <string.h>
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	size_t	needle_len;
+#include <string.h>
 
-	needle_len = ft_strlen(needle);
-	if (needle_len == 0)
-		return ((char *)haystack);
-	while (*haystack != '\0' && len >= needle_len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	littlelen;
+
+	littlelen = ft_strlen(little);
+	if (littlelen == 0)
+		return ((char *)big);
+	while (*big != '\0' && len >= littlelen)
 	{
-		if (ft_strncmp(haystack, needle, needle_len) == 0)
-			return ((char *)haystack);
-		haystack++;
+		if (ft_strncmp(big, little, littlelen) == 0)
+			return ((char *)big);
+		big++;
 		len--;
 	}
 	return (0);
 }
-*/
+
 /*
 #include <stdio.h>
 #include <stdlib.h>
