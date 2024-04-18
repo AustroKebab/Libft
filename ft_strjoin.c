@@ -6,38 +6,11 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 19:07:35 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/16 19:41:31 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/18 11:25:23 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
 #include <stdlib.h>
-
-static void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	char		*dp;
-	const char	*sp;
-	size_t		nn;
-
-	dp = ((char *)dest);
-	sp = ((const char *)src);
-	nn = 0;
-	while (nn < n)
-	{
-		dp[nn] = sp[nn];
-		++nn;
-	}
-	return (dest);
-}
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	t;
-
-	t = 0;
-	while (s[t] != '\0')
-		t++;
-	return (t);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -45,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	sdestlen;
 
 	sdestlen = ft_strlen(s1) + ft_strlen(s2) + 1;
-	dest = (char *)malloc(sdestlen * sizeof(char));
+	dest = (char *)ft_calloc(sdestlen, sizeof(char));
 	if (dest == 0)
 		return (0);
 	ft_memcpy(dest, s1, ft_strlen(s1));
