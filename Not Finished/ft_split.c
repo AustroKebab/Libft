@@ -6,7 +6,7 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:04:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/19 17:27:41 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/19 17:41:33 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*#include "libft.h"*/
@@ -30,14 +30,15 @@ static size_t	argcount(char const *str, char deli)
 }
 
 /*extract and length*/
-static char	*exsubstr(const char *str, char deli, size_t index)
+static char	*exsubstr(const char *str, char deli, size_t *index)
 {
 	size_t	i;
+	size_t	itwo;
 	size_t	substrlen;
 	char	*substr;
 
 	substrlen = 0;
-	i = index;
+	i = *index;
 	while (str[i] != '\0' && str[i] != deli)
 	{
 		substrlen++;
@@ -46,13 +47,15 @@ static char	*exsubstr(const char *str, char deli, size_t index)
 	substr = (char *)ft_calloc(substrlen, sizeof(char));
 	if (substr == 0)
 		return (0);
-	while (index + i < substrlen)
+	i = *index;
+	itwo = 0;
+	while (itwo < substrlen)
 	{
-		substr[i] = str[index + i];
-		i++;
+		substr[itwo] = str[i + itwo];
+		itwo++;
 	}
 	substr[substrlen] = '\0';
-	index = i + 1;
+	*index = i + substrlen + 1;
 	return (substr);
 }
 
@@ -86,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	index = 0;
 	while (i < count)
 	{
-		res[i] = exsubstr(s, c, index);
+		res[i] = exsubstr(s, c, &index);
 		if (res[i] == 0)
 		{
 			freemem(res, i);
@@ -102,12 +105,14 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	char	*s = "Herst,Hawara,Hello,world";
-	char	**result = ft_split(s, ',');
+	char	*s = "Herst Hawara Hello World Fuck Shit";
+	char	**result = ft_split(s, ' ');
 
 	if (result == NULL)
-		printf("Error: Unable to split the string.\n");
-	return (1);
+	{
+		printf("ERROR\n");
+		return (1);
+	}
 	printf("Result:\n");
 	for (int i = 0; result[i] != NULL; i++)
 		printf("%s\n", result[i]);
