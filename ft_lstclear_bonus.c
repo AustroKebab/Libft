@@ -6,10 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:35:51 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 12:47:28 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 15:33:22 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libfth.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

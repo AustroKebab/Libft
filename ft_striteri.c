@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 16:01:28 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 18:12:28 by mbozan           ###   ########.fr       */
+/*   Created: 2024/04/22 15:31:39 by mbozan            #+#    #+#             */
+/*   Updated: 2024/04/22 15:31:59 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*sub;
-	size_t	slen;
-	size_t	sublen;
 	size_t	i;
 
-	slen = ft_strlen(s);
-	if (start >= slen)
-		return (ft_strdup(""));
-	if (s == 0)
-		return (0);
-	if (len > (slen - start))
-		sublen = slen - start;
-	else
-		sublen = len;
-	sub = (char *)ft_calloc(sublen + 1, sizeof(char));
-	if (sub == 0)
-		return (0);
 	i = 0;
-	while (i < sublen)
+	while (s[i])
 	{
-		sub[i] = s[start + i];
+		f((unsigned int)i, s + i);
 		i++;
 	}
-	sub[sublen] = '\0';
-	return (sub);
 }

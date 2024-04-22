@@ -6,7 +6,7 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:17:31 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 14:25:26 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 19:24:30 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -26,7 +26,7 @@ static int	ilen(int nlen)
 {
 	size_t	len;
 
-	len = 0;
+	len = 1;
 	while (0 != nlen / 10)
 	{
 		nlen /= 10;
@@ -42,13 +42,13 @@ char	*ft_itoa(int n)
 	char	*str;
 
 	len = ilen(n);
-	str = (char *)ft_calloc(len, sizeof(char));
+	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	neg = isneg(n);
 	if (neg == -1)
 		*str++ = '-';
-	str += len;
+	str += len - 1;
 	*str-- = '\0';
 	while (n != 0)
 	{

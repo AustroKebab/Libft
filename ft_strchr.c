@@ -6,19 +6,23 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 17:07:22 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 14:32:37 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 19:14:36 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (c < 0 || c > 255)
+		return (0);
 	while (*s != '\0')
 	{
 		if (*s == c)
-			return (s);
+			return ((char *)s);
 		s++;
 	}
+	if (c == '\0')
+		return ((char *)s);
 	return (0);
 }
 

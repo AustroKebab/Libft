@@ -6,40 +6,48 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 01:57:13 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 14:31:10 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 17:55:23 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
-	int	r;
-	int	s;
+	int	sign;
+	int	num;
 
-	r = 0;
-	s = 1;
+	num = 0;
+	sign = 1;
 	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
 		nptr++;
-	while (*nptr == '-' || *nptr == '+')
+	if (*nptr == '-')
 	{
-		if (*nptr == '-')
-			s = s * -1;
+		sign = -1;
 		nptr++;
 	}
+	else if (*nptr == '+')
+		nptr++;
 	while (*nptr >= '0' && *nptr <= '9')
 	{
-		r = r * 10 + *nptr - '0';
+		num = num * 10 + (*nptr - '0');
 		nptr++;
 	}
-	return (r * s);
+	return (num * sign);
 }
 
 /*
 #include <stdio.h>
+#include <stdlib.h>
 
-int	main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	ac = 2;
-	printf("%d\n", ft_atoi(av[1]));
-}
-*/
+    if (argc == 2)
+    {
+        (void) argc;
+        printf("ft_atoi result : %d\n", ft_atoi(argv[1]));
+        printf("atoi result : %d\n", atoi(argv[1]));
+        return (0);
+    }
+    else
+        return (1);
+}*/

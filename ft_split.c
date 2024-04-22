@@ -6,7 +6,7 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:04:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 14:28:37 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 19:07:45 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,30 +30,28 @@ static size_t	argcount(char const *str, char deli)
 /*extract and length*/
 static char	*exsubstr(const char *str, char deli, size_t *index)
 {
-	size_t	i;
-	size_t	itwo;
-	size_t	substrlen;
-	char	*substr;
+	size_t		i;
+	size_t		substrlen;
+	char		*substr;
+	const char	*start;
 
+	start = str + *index;
 	substrlen = 0;
-	i = *index;
-	while (str[i] != '\0' && str[i] != deli)
-	{
+	while (start[substrlen] != '\0' && start[substrlen] != deli)
 		substrlen++;
-		i++;
-	}
-	substr = (char *)ft_calloc(substrlen, sizeof(char));
+	substr = (char *)ft_calloc((substrlen + 1), sizeof(char));
 	if (substr == 0)
 		return (0);
-	i = *index;
-	itwo = 0;
-	while (itwo < substrlen)
+	i = 0;
+	while (i < substrlen)
 	{
-		substr[itwo] = str[i + itwo];
-		itwo++;
+		substr[i] = start[i];
+		i++;
 	}
 	substr[substrlen] = '\0';
-	*index = i + substrlen + 1;
+	*index += substrlen;
+	while (str[*index] == deli)
+		(*index)++;
 	return (substr);
 }
 
@@ -77,10 +75,10 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	index;
 
-	count = argcount(s, c);
-	if (count == 0)
+	if (s == 0)
 		return (0);
-	res = (char **)ft_calloc(count, sizeof(char *));
+	count = argcount(s, c);
+	res = (char **)ft_calloc(count + 1, sizeof(char *));
 	if (res == 0)
 		return (0);
 	i = 0;
@@ -98,6 +96,7 @@ char	**ft_split(char const *s, char c)
 	res[count] = 0;
 	return (res);
 }
+
 /*
 #include <stdio.h>
 
