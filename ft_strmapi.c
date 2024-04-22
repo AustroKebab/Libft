@@ -6,12 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:54:08 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/18 18:30:53 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:22:03 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include "../ft_strlen.c"
-#include "../ft_calloc.c"
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -22,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s)
 		return (0);
-	str= (char *)ft_calloc(ft_strlen(s), sizeof(char));
+	str = (char *)ft_calloc(ft_strlen(s), sizeof(char));
 	if (!str)
 		return (0);
 	res = str;
