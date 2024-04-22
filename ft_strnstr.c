@@ -6,10 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 14:55:49 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/15 13:48:18 by austrokebab      ###   ########.fr       */
+/*   Updated: 2024/04/22 14:34:55 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

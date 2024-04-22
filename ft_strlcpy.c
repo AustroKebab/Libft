@@ -6,10 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:56:35 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/09 18:04:38 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:29:37 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

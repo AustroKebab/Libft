@@ -6,10 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 19:45:08 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/18 15:15:45 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:30:02 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	setcheck(char c, char const *set)
 {

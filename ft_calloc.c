@@ -6,12 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:01:41 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/18 17:32:58 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:31:29 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
-#include <stdlib.h>
-#include "ft_memset.c"
+#include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

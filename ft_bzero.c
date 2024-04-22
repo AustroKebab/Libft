@@ -6,10 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 11:36:06 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/09 17:57:10 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:24:29 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+#include "libft.h"
 
 void	bzero(void *s, size_t n)
 {

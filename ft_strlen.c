@@ -6,11 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 01:04:20 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/19 17:20:04 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:33:09 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include "libft.h"*/
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

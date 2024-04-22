@@ -6,11 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:39:04 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/09 14:19:04 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:27:44 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

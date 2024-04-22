@@ -6,12 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:17:31 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/18 17:51:44 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:25:26 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include "../ft_calloc.c"
-#include "../ft_atoi.c"
+#include "libft.h"
 
 static int	isneg(int nn)
 {

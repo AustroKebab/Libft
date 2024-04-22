@@ -6,12 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:04:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 11:37:04 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/22 14:28:37 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-/*#include <stdlib.h>
-#include "../ft_calloc.c"*/
 
 static size_t	argcount(char const *str, char deli)
 {
