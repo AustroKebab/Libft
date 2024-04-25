@@ -6,72 +6,110 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:17:31 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 19:24:30 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/25 18:37:19 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+#include <stdio.h>
+//#include <stdio.h>
 
-static int	isneg(int nn)
+static int	issign(int n)
 {
 	int	res;
 
-	if (nn < 0)
+	if (n < 0)
 		res = -1;
 	else
 		res = 1;
 	return (res);
 }
 
-static int	ilen(int nlen)
+static int	ilen(int n)
 {
-	size_t	len;
+	int	len;
+	int	sign;
 
-	len = 1;
-	while (0 != nlen / 10)
+	len = 0;
+	sign = issign(n);
+	if(n == 0)
+		len++;
+	while (n != 0)
 	{
-		nlen /= 10;
+		n /= 10;
 		len++;
 	}
+	if (sign == -1)
+		len++;
 	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	size_t	len;
-	int		neg;
-	char	*str;
+	int				len;
+	int				sign;
+	char			*str;
+	unsigned int	num;
 
+	sign = issign(n);
 	len = ilen(n);
-	str = (char *)malloc((len + 1) * sizeof(char));
+	num = n;
+	str = (char *)ft_calloc((len + 1), sizeof(char));
+	len--;
 	if (!str)
 		return (0);
-	neg = isneg(n);
-	if (neg == -1)
-		*str++ = '-';
-	str += len - 1;
-	*str-- = '\0';
-	while (n != 0)
+	if (sign == -1)
 	{
-		*str-- = '0' + (neg * (n % 10));
-		n /= 10;
+		str[0] = '-';
+		num = num * -1;
 	}
-	return (str + 1);
+	while (((sign == -1 && len > 0) || (len >= 0 && sign == 1)))
+	{
+		str[len] = '0' + (num % 10);
+		num /= 10;
+		len--;
+	}
+	return (str);
 }
 
-/*
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	if (argc == 2)
-	{
-		int	num;
+#include "ft_atoi.c"
+// /**/
+// int	main(int argc, char **argv)
+// {
+// 	if (argc == 2)
+// 	{
+// 		int	num;
 
-		num = ft_atoi(argv[1]);
-		printf("The number given: %d\n", num);
-		printf("String result: %s\n", ft_itoa(num));
-		return (0);
-	}
-	else
-		return (1);
-}
-*/
+// 		num = ft_atoi(argv[1]);
+// 		char *n = ft_itoa(num);
+// 		printf("%s\n", n);
+// 		free(n);
+// 		return (0);
+// 	}
+// }
+
+// char	*ft_itoa(int n)
+// {
+// 	int				len;
+// 	int				sign;
+// 	char			*str;
+// 	unsigned int	num;
+
+// 	sign = issign(n);
+// 	len = ilen(n);
+// 	num = n;
+// 	str = (char *)ft_calloc((len + 1), sizeof(char));
+// 	if (!str)
+// 		return (0);
+// 	if (sign == -1)
+// 	{
+// 		str[0] = '-';
+// 		num = num * -1;
+// 	}
+// 	while (((sign == -1 && len > 0) || (len >= 0 && sign == 1)))
+// 	{
+// 		str[len] = '0' + (num % 10);
+// 		num /= 10;
+// 		len--;
+// 	}
+// 	return (str);
+// }
