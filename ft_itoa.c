@@ -6,12 +6,10 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:17:31 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/25 18:37:19 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/26 10:10:48 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
-//#include <stdio.h>
 
 static int	issign(int n)
 {
@@ -31,7 +29,7 @@ static int	ilen(int n)
 
 	len = 0;
 	sign = issign(n);
-	if(n == 0)
+	if (n == 0)
 		len++;
 	while (n != 0)
 	{
@@ -71,45 +69,18 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-#include "ft_atoi.c"
-// /**/
-// int	main(int argc, char **argv)
-// {
-// 	if (argc == 2)
-// 	{
-// 		int	num;
+/*
+int	main(int argc, char **argv)
+{
+ 	if (argc == 2)
+ 	{
+ 		int	num;
 
-// 		num = ft_atoi(argv[1]);
-// 		char *n = ft_itoa(num);
-// 		printf("%s\n", n);
-// 		free(n);
-// 		return (0);
-// 	}
-// }
-
-// char	*ft_itoa(int n)
-// {
-// 	int				len;
-// 	int				sign;
-// 	char			*str;
-// 	unsigned int	num;
-
-// 	sign = issign(n);
-// 	len = ilen(n);
-// 	num = n;
-// 	str = (char *)ft_calloc((len + 1), sizeof(char));
-// 	if (!str)
-// 		return (0);
-// 	if (sign == -1)
-// 	{
-// 		str[0] = '-';
-// 		num = num * -1;
-// 	}
-// 	while (((sign == -1 && len > 0) || (len >= 0 && sign == 1)))
-// 	{
-// 		str[len] = '0' + (num % 10);
-// 		num /= 10;
-// 		len--;
-// 	}
-// 	return (str);
-// }
+ 		num = ft_atoi(argv[1]);
+ 		char *n = ft_itoa(num);
+ 		printf("%s\n", n);
+ 		free(n);
+ 		return (0);
+ 	}
+}
+*/

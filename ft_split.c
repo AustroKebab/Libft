@@ -6,49 +6,65 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:04:43 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 19:07:45 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/26 12:23:56 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static size_t	argcount(char const *str, char deli)
 {
-	int	arc;
-	int	i;
+	size_t				arc;
+	size_t				i;
+	unsigned char		sep;
+	const unsigned char	*string;
 
+	if (!ft_strlen(str))
+		return (0);
 	arc = 0;
 	i = 0;
-	while (str[i] != '\0')
+	sep = (unsigned char)deli;
+	string = (const unsigned char *)str;
+	while (string[i])
 	{
-		if (str[i] != deli && (i == 0 || str[i - 1] == deli))
+		if ((string[i + 1] == sep || !(string[i + 1])) && string[i] != sep)
 			arc++;
 		i++;
 	}
 	return (arc);
 }
 
-/*extract and length*/
-static char	*exsubstr(const char *str, char deli, size_t *index)
+static char	*subwrite(char *substr, const char *start, size_t substrlen)
 {
-	size_t		i;
-	size_t		substrlen;
-	char		*substr;
-	const char	*start;
+	size_t	i;
 
-	start = str + *index;
-	substrlen = 0;
-	while (start[substrlen] != '\0' && start[substrlen] != deli)
-		substrlen++;
-	substr = (char *)ft_calloc((substrlen + 1), sizeof(char));
-	if (substr == 0)
-		return (0);
 	i = 0;
 	while (i < substrlen)
 	{
 		substr[i] = start[i];
 		i++;
 	}
-	substr[substrlen] = '\0';
+	return (substr);
+}
+
+static char	*exsubstr(const char *str, char deli, size_t *index)
+{
+	size_t		substrlen;
+	char		*substr;
+	const char	*start;
+
+	start = str + *index;
+	substrlen = 0;
+	while (*start == deli)
+	{
+		start++;
+		(*index)++;
+	}
+	while (start[substrlen] != '\0' && start[substrlen] != deli)
+		substrlen++;
+	substr = (char *)ft_calloc((substrlen + 1), sizeof(char));
+	if (substr == 0)
+		return (0);
+	substr = subwrite(substr, start, substrlen);
 	*index += substrlen;
 	while (str[*index] == deli)
 		(*index)++;
@@ -102,7 +118,7 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	char	*s = "Herst Hawara Hello World Fuck Shit";
+	char	*s = " Herst  Hawara   LIEBE!  ";
 	char	**result = ft_split(s, ' ');
 
 	if (result == NULL)

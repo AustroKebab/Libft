@@ -6,7 +6,7 @@
 /*   By: mbozan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 19:07:35 by mbozan            #+#    #+#             */
-/*   Updated: 2024/04/22 14:37:20 by mbozan           ###   ########.fr       */
+/*   Updated: 2024/04/26 13:47:42 by mbozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,8 +28,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 #include <stdio.h>
 int	main(void)
 {
-	const char	*s1 = "Habibi, ";
-	const char	*s2 = "Liebe dich";
+	const char	*s1 = "";
+	const char	*s2 = "";
 	char		*res;
 
 	res = ft_strjoin(s1, s2);
@@ -38,7 +38,7 @@ int	main(void)
 		printf("ERROR\n");
 		return (1);
 	}
-	printf("JOIN STR: %s\n", res);
+	printf("JOINED STR: %s\n", res);
 	free(res);
 	return 0;
 }
